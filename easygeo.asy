@@ -29,7 +29,7 @@ line bisector(point A,point B,point C,bool sharp=true)
 	if(sharp)
 		return bisector(line(A,false,B),line(A,false,C));
 	else
-		return perpendicular(A,bisector(line(A,false,B),line(A,false,C)));
+		return bisector(line(A,false,B),line(A,false,C),false);
 }
 
 //返回分割满足 AP=t PB 的点P,向量意义下,也就是高中教材里的定比分点
