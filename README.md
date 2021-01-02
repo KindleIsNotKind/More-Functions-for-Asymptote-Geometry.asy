@@ -3,6 +3,7 @@
 
  ## 使用方法
  放在在个人文件夹下的 .asy 文件夹即可,即 windows 的 C:/Users/xx/.asy ,或者 Linux 的 ~/.asy/ 里
+ 
  在文件前附加
 
 > import geometry;
