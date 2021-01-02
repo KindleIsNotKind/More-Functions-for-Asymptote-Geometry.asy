@@ -12,9 +12,9 @@ point intersectionpoint(circle c,point A,point B)
 {
 	point[] p=intersectionpoints(c,line(A,B));
 	if(p[0]==A)
-		return B;
-	else
 		return p[1];
+	else
+		return p[0];
 }
 
 //返回三角形ABC的垂心
