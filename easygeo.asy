@@ -7,6 +7,12 @@ circle tangentABC(point A,point B,point C)
 	return circle(B2,A,B);
 }
 
+// A在BC上的投影
+point foot(point A,point B,point C)
+{
+	return projection(line(B,C))*A;
+}
+
 //A在圆c上,求直线AB与圆c的另外一个交点
 point intersectionpoint(circle c,point A,point B)
 {
