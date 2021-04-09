@@ -6,7 +6,7 @@
  
  在文件前附加
 
-> import geometry;
+> import easygeo;
 
 即可使用
 
