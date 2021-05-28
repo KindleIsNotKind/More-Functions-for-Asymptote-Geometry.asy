@@ -21,8 +21,8 @@ point A=(1000,1000),B=(1000,1000),C=(1000,1000),D=(1000,1000),E=(1000,1000),F=(1
 // 返回与直线AB切于A且过C的圆
 circle tangentABC(point A,point B,point C) 
 {
-	point B2=scale(length(C-A)^2/length(C-B)^2,C)*B;
-	return circle(B2,A,B);
+	point B2=scale(length(B-A)^2/length(B-C)^2,B)*C;
+	return circle(B2,A,C);
 }
 
 // A在BC上的投影
@@ -34,13 +34,22 @@ point foot(point A,point B,point C)
 // A在圆c上,求直线AB与圆c的另外一个交点
 point intersectionpoint(circle c,point A,point B)
 {
-	point[] p=intersectionpoints(c,line(A,B));
+	point[] p=intersectionpoints(line(A,B),c);
 	if(p[0]==A)
 		return p[1];
 	else
 		return p[0];
 }
 
+// A在c上,求直线AB与c的另外一个交点
+point intersectionpoint(path c,point A,point B)
+{
+	point[] p=intersectionpoints(line(A,B),c);
+	if(p[0]==A)
+		return p[1];
+	else
+		return p[0];
+}
 // 返回三角形ABC的垂心
 point chuixin(point A,point B,point C)
 {
