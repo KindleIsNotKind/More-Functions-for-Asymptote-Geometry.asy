@@ -56,20 +56,23 @@ point chuixin(point A,point B,point C)
 	return orthocentercenter(triangle(A,B,C));
 }
 
-// 默认返回 \angle BAC 的内角平分线,如果 sharp=false,返回外角平分线
-line bisector(point A,point B,point C,bool sharp=true)
-{
-	if(sharp)
-		return bisector(line(A,false,B),line(A,false,C));
-	else
-		return perpendicular(A,bisector(line(A,false,B),line(A,false,C)));
-}
 
 // 返回分割满足 AP=t PB 的点P,向量意义下,也就是高中教材里的定比分点
 point fendian(point A,point B,real t)
 {
 	point C=(A+t*B)/(1+t);
 	return C;
+}
+
+// 默认返回 \angle BAC 的内角平分线,如果 sharp=false,返回外角平分线
+line bisector(point A,point B,point C,bool sharp=true)
+{
+	real t=length(A-B)/length(A-C);
+	point X=fendian(B,C,t),Y=fendian(B,C,-t);
+	if(sharp)
+		return line(A,X);
+	else
+		return line(A,Y);
 }
 
 // 返回到A,B距离之比为t的阿氏圆
